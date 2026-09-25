@@ -1,0 +1,56 @@
+include<iostream>
+include<vector>
+include<algorithm>
+
+using namespace std;
+
+struct pair{
+    int max;
+    int min;
+};
+
+Pair getMinMax(const vector& arr,int low, int high){
+    pair result;
+    pair left result;
+    pair right result;
+}
+
+    if (high==low)
+    {
+        result.max=arr[low];
+        result.min=arr[low];
+        return result;
+
+    }
+
+    if (high==low+1)
+{
+    if(arr[low]>[high])
+    {
+        result.max=arr[low];
+        result.min=arr[high];
+    }
+    else
+    {
+        result.max=arr[high];
+        result.min=arr[low];
+    }
+    return result;
+}
+
+int mid= low+(high-low)/2;
+left_result= getMinMax(arr, low, mid);
+right_result= getMinMax(arr, mid+1, high);
+
+result.max=max(left_result.max, right_result.max);
+result.min=min(left_result.min, right_result.min);
+return result;
+}
+int main(){
+    vector<int> arr={1000, 11, 445, 1, 330, 3000};
+    int n=arr.size();
+    pair minmax=getMinMax(arr,0,n-1);
+    cout<<"Minimum element is "<<minmax.min<<endl;
+    cout<<"Maximum element is "<<minmax.max<<endl;
+    return 0;
+}
